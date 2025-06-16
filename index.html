@@ -4,11 +4,242 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sunkiss Tanning Studio | Burnley</title>
-  <link href="css/Lightbox.min.css" rel="stylesheet">
+  <!-- Local Lightbox CSS -->
+  <link rel="stylesheet" href="css/Lightbox.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-  <!-- No script needed for Lightbox on homepage unless you use Lightbox gallery here -->
   <style>
-    /* [same CSS as before, you can keep your styles here as they are!] */
+    :root {
+      --primary-red: #E53935;
+      --accent-gold: #FFD86B;
+      --background-white: #FFF;
+      --text-black: #191919;
+      --secondary-sand: #FFF5E6;
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--background-white);
+      color: var(--text-black);
+    }
+    .banner-logo {
+      width: 100%;
+      background: var(--primary-red);
+      padding: 32px 0 24px 0;
+      text-align: center;
+    }
+    .banner-logo img {
+      max-width: 400px;
+      width: 85vw;
+      height: auto;
+      filter: drop-shadow(0 3px 12px rgba(0,0,0,0.08));
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--accent-gold);
+      padding: 0.5em 0;
+      font-weight: 700;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--text-black);
+      text-decoration: none;
+      margin: 0 1em;
+      padding: 0.25em 0.5em;
+      border-radius: 7px;
+      transition: background 0.2s;
+    }
+    nav a:hover, nav .phone {
+      background: var(--primary-red);
+      color: var(--background-white);
+    }
+    nav .phone {
+      background: var(--primary-red);
+      color: var(--background-white);
+      padding: 0.3em 0.8em;
+      border-radius: 18px;
+      margin-left: 1em;
+      font-size: 1em;
+      font-weight: 700;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(90deg, var(--primary-red) 30%, var(--secondary-sand) 100%);
+      padding: 48px 12px 36px 12px;
+      text-align: center;
+    }
+    .hero h1 {
+      color: var(--background-white);
+      font-size: 2.7em;
+      margin-bottom: 0.5em;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 18px rgba(0,0,0,0.18);
+    }
+    .hero p {
+      color: var(--background-white);
+      font-size: 1.3em;
+      margin-bottom: 1em;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-btn {
+      background: var(--accent-gold);
+      color: var(--text-black);
+      padding: 0.8em 2.5em;
+      border-radius: 24px;
+      font-size: 1.15em;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(229,57,53,0.08);
+      transition: background 0.2s, color 0.2s;
+    }
+    .cta-btn:hover {
+      background: var(--primary-red);
+      color: var(--background-white);
+    }
+    .section {
+      padding: 48px 8vw 36px 8vw;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      color: var(--primary-red);
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      font-weight: 700;
+      text-align: center;
+    }
+    .about-content, .services-list, .why-list {
+      margin: 0 auto;
+      max-width: 700px;
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+    .services-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+    }
+    .service-card {
+      background: var(--secondary-sand);
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      padding: 26px 22px 22px 22px;
+      min-width: 240px;
+      max-width: 310px;
+      flex: 1 1 240px;
+      margin: 8px;
+      text-align: center;
+    }
+    .service-card h3 {
+      color: var(--primary-red);
+      margin-top: 0;
+      font-size: 1.18em;
+    }
+    .service-card p {
+      margin: 0.6em 0 0.3em 0;
+      font-size: 1em;
+    }
+    .gallery {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 18px;
+    }
+    .gallery a {
+      display: block;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+      transition: transform 0.15s;
+    }
+    .gallery a:hover {
+      transform: scale(1.05);
+    }
+    .gallery img {
+      width: 190px;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+      border-radius: 14px;
+    }
+    .why-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .why-list li {
+      margin: 1.1em 0;
+      font-size: 1.08em;
+      color: var(--primary-red);
+    }
+    .contact-block {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 1.1em;
+    }
+    .contact-block a {
+      color: var(--primary-red);
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      margin: 0.8em 0;
+    }
+    .hours-table {
+      margin: 1em auto;
+      border-collapse: collapse;
+      color: var(--text-black);
+    }
+    .hours-table td, .hours-table th {
+      border: 1px solid #eee;
+      padding: 4px 18px;
+    }
+    footer {
+      background: var(--primary-red);
+      color: var(--background-white);
+      text-align: center;
+      padding: 24px 8vw 18px 8vw;
+      font-size: 1em;
+      margin-top: 40px;
+      border-radius: 18px 18px 0 0;
+    }
+    footer img {
+      max-width: 100px;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 800px) {
+      .services-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      .section {
+        padding: 38px 2vw 28px 2vw;
+      }
+      .banner-logo img {
+        max-width: 94vw;
+      }
+    }
+    @media (max-width: 540px) {
+      nav {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .hero h1 {
+        font-size: 1.7em;
+      }
+      .gallery img {
+        width: 90vw;
+        height: 140px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -18,10 +249,10 @@
   </div>
   <!-- Navigation -->
   <nav>
-    <a href="index.html">Home</a>
+    <a href="#">Home</a>
     <a href="#about">About</a>
     <a href="#services">Services</a>
-    <a href="gallery.html">Gallery</a>
+    <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
     <span class="phone">📞 01282 839007</span>
   </nav>
@@ -91,11 +322,52 @@
   <section id="gallery" class="section">
     <div class="section-title">Gallery</div>
     <div class="gallery">
-      <img src="images/front-desk.jpg" alt="Sunbed Example">
-      <img src="images/sunbed1.jpg" alt="Spray Tan">
-      <img src="images/sunbed2.jpg" alt="Salon Interior">
+      <a href="images/front-desk.jpg" data-lightbox="sunkiss-gallery" data-title="Front Desk">
+        <img src="images/front-desk.jpg" alt="Front Desk">
+      </a>
+      <a href="images/sunbed1.jpg" data-lightbox="sunkiss-gallery" data-title="Sunbed 1">
+        <img src="images/sunbed1.jpg" alt="Sunbed 1">
+      </a>
+      <a href="images/sunbed1open.jpg" data-lightbox="sunkiss-gallery" data-title="Sunbed 1 Open">
+        <img src="images/sunbed1open.jpg" alt="Sunbed 1 Open">
+      </a>
+      <a href="images/sunbed2.jpg" data-lightbox="sunkiss-gallery" data-title="Sunbed 2">
+        <img src="images/sunbed2.jpg" alt="Sunbed 2">
+      </a>
+      <a href="images/sunbed2open.jpg" data-lightbox="sunkiss-gallery" data-title="Sunbed 2 Open">
+        <img src="images/sunbed2open.jpg" alt="Sunbed 2 Open">
+      </a>
+      <a href="images/sunbed2open1.jpg" data-lightbox="sunkiss-gallery" data-title="Sunbed 2 Open (alt)">
+        <img src="images/sunbed2open1.jpg" alt="Sunbed 2 Open (alt)">
+      </a>
+      <a href="images/sunbed3.jpg" data-lightbox="sunkiss-gallery" data-title="Sunbed 3">
+        <img src="images/sunbed3.jpg" alt="Sunbed 3">
+      </a>
+      <a href="images/sunbed3open.jpg" data-lightbox="sunkiss-gallery" data-title="Sunbed 3 Open">
+        <img src="images/sunbed3open.jpg" alt="Sunbed 3 Open">
+      </a>
+      <a href="images/product1.jpg" data-lightbox="sunkiss-gallery" data-title="Product 1">
+        <img src="images/product1.jpg" alt="Product 1">
+      </a>
+      <a href="images/product2.jpg" data-lightbox="sunkiss-gallery" data-title="Product 2">
+        <img src="images/product2.jpg" alt="Product 2">
+      </a>
+      <a href="images/product3.jpg" data-lightbox="sunkiss-gallery" data-title="Product 3">
+        <img src="images/product3.jpg" alt="Product 3">
+      </a>
+      <a href="images/product4.jpg" data-lightbox="sunkiss-gallery" data-title="Product 4">
+        <img src="images/product4.jpg" alt="Product 4">
+      </a>
+      <a href="images/product5.jpg" data-lightbox="sunkiss-gallery" data-title="Product 5">
+        <img src="images/product5.jpg" alt="Product 5">
+      </a>
+      <a href="images/product6.jpg" data-lightbox="sunkiss-gallery" data-title="Product 6">
+        <img src="images/product6.jpg" alt="Product 6">
+      </a>
+      <a href="images/product7.jpg" data-lightbox="sunkiss-gallery" data-title="Product 7">
+        <img src="images/product7.jpg" alt="Product 7">
+      </a>
     </div>
-    <div class="gallery-link"><a href="gallery.html">See the Full Gallery &rarr;</a></div>
   </section>
   <!-- Contact -->
   <section id="contact" class="section">
@@ -113,11 +385,8 @@
         <tr><td>Saturday</td><td>10:00 – 17:00</td></tr>
         <tr><td>Sunday</td><td>11:00 – 15:00</td></tr>
       </table>
-      <div class="socials">
-        Find us on social media: 
-        <a href="https://facebook.com/YOURPAGE" target="_blank" rel="noopener">Facebook</a> | 
-        <a href="https://instagram.com/YOURPAGE" target="_blank" rel="noopener">Instagram</a>
-      </div>
+      <!-- <iframe src="GOOGLE_MAPS_EMBED_URL_HERE" width="320" height="160" style="border:0; border-radius:12px;" allowfullscreen></iframe> -->
+      <div style="margin-top:10px; font-size:0.92em;">Find us on social media: [Add Facebook/Instagram links here!]</div>
     </div>
   </section>
   <footer>
@@ -126,6 +395,8 @@
     47 Lyndhurst Road, Burnley, BB10 4DE<br>
     Phone: 01282 839007
   </footer>
+  <!-- jQuery + Local Lightbox JS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/Lightbox.min.js"></script>
 </body>
 </html>
-
